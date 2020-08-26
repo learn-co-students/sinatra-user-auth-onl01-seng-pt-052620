@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/registrations/signup' do
-
+    puts params
     erb :'/registrations/signup'
   end
 
@@ -37,6 +37,7 @@ class ApplicationController < Sinatra::Base
       redirect '/users/home'
     end
     redirect '/sessions/login'
+    puts params
   end
 
   get '/sessions/logout' do
@@ -45,7 +46,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/users/home' do
-
     @user = User.find(session[:user_id])
     erb :'/users/home'
   end
